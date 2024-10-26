@@ -783,7 +783,7 @@ if (isset($_GET['proxy']) && (!empty($fm_config['enable_proxy']))) {
 <head>     
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><?=__('File manager')?></title>
+    <title><?=__(❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞)?></title>
 <style>
 body {
     background-color:   white;
