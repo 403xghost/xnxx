@@ -39,7 +39,7 @@ function login_shell() {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"/>
     <style>
         body {
-            background-image: url('https://wallpapercave.com/uwp/uwp4534249.jpeg');
+            background-image: url('https://wallpapercave.com/uwp/uwp4009057.jpeg');
             background-size: cover; /* Menutupi seluruh halaman */
             background-position: center; /* Memposisikan gambar di tengah */
             height: 100vh; /* Memastikan tinggi halaman 100% dari viewport */
