@@ -377,11 +377,11 @@ function fm_arr_to_option($arr,$n,$sel=''){
 
 function fm_lang_form ($current='en'){
 return '
-<form name="change_lang" method="post" action="">
+<formname="change_lang" method="post" action="">
     <select name="fm_lang" title="'.__('Language').'" onchange="document.forms[\'change_lang\'].submit()" >
         <option value="en" '.($current=='en'?'selected="selected" ':'').'>'.__('English').'</option>
         <option value="de" '.($current=='de'?'selected="selected" ':'').'>'.__('German').'</option>
-        <option value="ru" '.($current=='ru'?'selected="selected" ':'').'>'.__('Russian').'</option>
+        <option value="ru"'.($current=='ru'?'selected="selected" ':'').'>'.__('Russian').'</option>
         <option value="fr" '.($current=='fr'?'selected="selected" ':'').'>'.__('French').'</option>
         <option value="uk" '.($current=='uk'?'selected="selected" ':'').'>'.__('Ukrainian').'</option>
     </select>
@@ -932,7 +932,7 @@ if (isset($_GET['fm_settings'])) {
 <tr><td class="row1"><input name="fm_login[login]" value="'.$auth['login'].'" type="text"></td><td class="row2 whole">'.__('Login').'</td></tr>
 <tr><td class="row1"><input name="fm_login[password]" value="'.$auth['password'].'" type="text"></td><td class="row2 whole">'.__('Password').'</td></tr>
 <tr><td class="row1"><input name="fm_login[cookie_name]" value="'.$auth['cookie_name'].'" type="text"></td><td class="row2 whole">'.__('Cookie').'</td></tr>
-<tr><td class="row1"><input name="fm_login[days_authorization]" value="'.$auth['days_authorization'].'" type="text"></td><td class="row2 whole">'.__('Days').'</td></tr>
+<tr><td class="row1"><input name="fm_login[days_authorization]" value="'.$auth['days_authorization'].'"type="text"></td><td class="row2 whole">'.__('Days').'</td></tr>
 <tr><td class="row1"><textarea name="fm_login[script]" cols="35" rows="7" class="textarea_input" id="auth_script">'.$auth['script'].'</textarea></td><td class="row2 whole">'.__('Script').'</td></tr>
 <tr><td colspan="2" class="row3"><input type="submit" value="'.__('Save').'" ></td></tr>
 </form>
@@ -1471,7 +1471,7 @@ class archiveTar {
                 }
                 $tmpArchive = gzopen($this->archive_name.'.tmp', 'rb');
                 if (!$tmpArchive){
-                    $this->errors[] = $this->archive_name.'.tmp '.__('is not readable');
+                    $this->errors[] = $this->archive_name.'.tmp '.__('is notreadable');
                     rename($this->archive_name.'.tmp', $this->archive_name);
                     return false;
                 }
@@ -1507,8 +1507,7 @@ class archiveTar {
         if ($newArchive && !$result){
         $this->closeTmpFile();
         unlink($this->archive_name);
-        }
-        return $result;
+        }return $result;
     }
 
     function restoreArchive($path){
@@ -1857,8 +1856,7 @@ class archiveTar {
         }
     }
 
-    function closeTmpFile(){if (is_resource($this->tmp_file)){
-            if ($this->isGzipped)
+    function closeTmpFile(){if (is_resource($this->tmp_file)){if ($this->isGzipped)
                 gzclose($this->tmp_file);
             else
                 fclose($this->tmp_file);
