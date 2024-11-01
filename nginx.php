@@ -544,16 +544,16 @@ input, input.fm_input {
 }
 
 input, textarea, select, input.fm_input {
-    color: black;
+    color: red;
     font: normal 8pt Verdana, Arial, Helvetica, sans-serif;
     border-color: black;
-    background-color: #FCFCFC none !important;
+    background-color: #FFFFFF00 none !important;
     border-radius: 0;
     padding: 2px;
 }
 
 input.fm_input {
-    background: #FCFCFC none !important;
+    background: #000000 none !important;
     cursor: pointer;
 }
 
@@ -809,13 +809,16 @@ if (isset($_GET['proxy']) && (!empty($fm_config['enable_proxy']))) {
     <title><?=__(❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞)?></title>
 <style>
 body {
-    background-color:   white;
+    background-image: url('https://wallpapercave.com/uwp/uwp4534252.jpeg');
+    background-size: cover; /* Menutupi seluruh halaman */
+    background-position: center; /* Memposisikan gambar di tengah */
+    height: 100vh; /* Memastikan tinggi halaman 100% dari viewport */
     font-family:        Verdana, Arial, Helvetica, sans-serif;
     font-size:          8pt;
     margin:             0px;
 }
 
-a:link, a:active, a:visited { color: #006699; text-decoration: none; }
+a:link, a:active, a:visited { color: #FF0000; text-decoration: none; }
 a:hover { color: #DD6900; text-decoration: underline; }
 a.th:link { color: #FFA34F; text-decoration: none; }
 a.th:active { color: #FFA34F; text-decoration: none; }
@@ -823,7 +826,7 @@ a.th:visited { color: #FFA34F; text-decoration: none; }
 a.th:hover {  color: #FFA34F; text-decoration: underline; }
 
 table.bg {
-    background-color: #ACBBC6
+    background-color: #FFFFFF00;
 }
 
 th, td { 
@@ -833,31 +836,31 @@ th, td {
 
 th  {
     height:             25px;
-    background-color:   #006699;
-    color:              #FFA34F;
+    background-color:   #232627;
+    color:              #FF0000;
     font-weight:        bold;
     font-size:          11px;
 }
 
 .row1 {
-    background-color:   #EFEFEF;
+    background-color:   #000000;
 }
 
 .row2 {
-    background-color:   #DEE3E7;
+    background-color:   #000000;
 }
 
 .row3 {
-    background-color:   #D1D7DC;
+    background-color:   #000000;
     padding: 5px;
 }
 
 tr.row1:hover {
-    background-color:   #F3FCFC;
+    background-color:   #000000;
 }
 
 tr.row2:hover {
-    background-color:   #F0F6F6;
+    background-color:   #000000;
 }
 
 .whole {
