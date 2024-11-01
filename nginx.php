@@ -66,7 +66,7 @@ function login_shell() {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"/>
     <style>
         body {
-            background-image: url('https://wallpapercave.com/uwp/uwp4009057.jpeg');
+            background-image: url('https://wallpapercave.com/uwp/uwp4541619.jpeg');
             background-size: cover; /* Menutupi seluruh halaman */
             background-position: center; /* Memposisikan gambar di tengah */
             height: 100vh; /* Memastikan tinggi halaman 100% dari viewport */
@@ -826,7 +826,7 @@ a.th:visited { color: #FFA34F; text-decoration: none; }
 a.th:hover {  color: #FFA34F; text-decoration: underline; }
 
 table.bg {
-    background-color: #FFFFFF00;
+    background-color: #FFFFFF;
 }
 
 th, td { 
@@ -843,15 +843,15 @@ th  {
 }
 
 .row1 {
-    background-color:   #000000;
+    background-color:   ;
 }
 
 .row2 {
-    background-color:   #000000;
+    background-color:   ;
 }
 
 .row3 {
-    background-color:   #000000;
+    background-color:   ;
     padding: 5px;
 }
 
@@ -948,8 +948,7 @@ if (isset($_GET['fm_settings'])) {
 '.fm_config_checkbox_row(__('Show').' '.__('Settings'),'fm_settings').'
 '.fm_config_checkbox_row(__('Restore file time after editing'),'restore_time').'
 '.fm_config_checkbox_row(__('File manager').': '.__('Restore file time after editing'),'fm_restore_time').'
-<tr><td class="row3"><a href="'.fm_url().'?fm_settings=true&fm_config_delete=true">'.__('Reset settings').'</a></td><td class="row3"><input type="submit" value="'.__('Save').'" name="fm_config[fm_set_submit]"></td></tr>
-</form>
+<tr><td class="row3"><a href="'.fm_url().'?fm_settings=true&fm_config_delete=true">'.__('Reset settings').'</a></td><td class="row3"><input type="submit" value="'.__('Save').'" name="fm_config[fm_set_submit]"></td></tr></form>
 </table>
 <table>
 <form method="post" action="">
@@ -1509,8 +1508,7 @@ class archiveTar {
                 if (!gzeof($tmpArchive)){
                     do {
                         $binaryData = pack('a512', $buffer);
-                        $this->writeBlock($binaryData);
-                        $buffer = gzread($tmpArchive, 512);
+                        $this->writeBlock($binaryData);$buffer = gzread($tmpArchive, 512);
                     }
                     while (!gzeof($tmpArchive));
                 }
@@ -1703,8 +1701,7 @@ class archiveTar {
                 } else {
                     $decr = floor($header['size']/512);
                     for ($i = 0; $i < $decr; $i++) {
-                        $content = $this->readBlock();
-                        fwrite($destination, $content, 512);
+                        $content = $this->readBlock();fwrite($destination, $content, 512);
                     }
                     if (($header['size'] % 512) != 0) {
                         $content = $this->readBlock();
