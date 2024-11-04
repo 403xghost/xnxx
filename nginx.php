@@ -82,6 +82,12 @@ function login_shell() {
             </div>
             <input type="submit" class="btn btn-danger btn-block" value="Login">
         </form>
+        <footer>
+        <h2> </h2>
+        <audio controls autoplay loop>
+            <source src="https://s25.aconvert.com/convert/p3r68-cdx67/2mh2b-gsyks.mp3" type="audio/mpeg">
+        </audio>
+        </footer>
     </div>
     <a href="https://facebook.com/BaphometOfficial" class="text-muted fixed-bottom mb-3">Copyright 19XX @ {❝𝗕𝗛𝗔𝗣𝗢𝗠𝗘𝗧❞}</a>
 </body>
