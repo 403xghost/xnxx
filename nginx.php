@@ -919,7 +919,7 @@ url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBT
         <p><?php echo $uname; ?></p>
 
     <!-- Add PHP information section -->
-    <div style="margin: 10px; padding: 10px; color: #64ff00; background-color: rgba(255, 255, 255, 0); border-radius: 5px;">
+    <div style="margin: 10px; padding: 10px; color: greenyellow; background-color: rgba(255, 255, 255, 0); border-radius: 5px;">
         <h2>PHP Information</h2>
         <p><strong>PHP Version:</strong> <?php echo phpversion(); ?></p>
         <p><strong>Server Software:</strong> <?php echo $_SERVER['SERVER_SOFTWARE']; ?></p>
